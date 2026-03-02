@@ -1,6 +1,7 @@
 package med.voll.api.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
+import med.voll.api.domain.ValidacaoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -54,5 +55,10 @@ public class TratadorDeErros {
         public DadosErroValidacao(FieldError fieldError){
             this(fieldError.getField(),fieldError.getDefaultMessage());
         }
+    }
+
+    @ExceptionHandler(ValidacaoException.class)
+    public ResponseEntity ErroRegraDeNegocio(ValidacaoException exception){
+        return ResponseEntity.badRequest().body(exception.getMessage());
     }
 }

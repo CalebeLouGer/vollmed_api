@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import med.voll.api.domain.ValidacaoException;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.paciente.Paciente;
 
@@ -30,4 +31,25 @@ public class Consulta {
     private Paciente paciente;
 
     private LocalDateTime data;
+
+    private Boolean cancelada;
+
+    @Column(name = "motivo_cancelamento")
+    private String motivoCancelamento;
+
+    public Consulta(Medico medico, Paciente paciente, LocalDateTime data) {
+        this.medico = medico;
+        this.paciente = paciente;
+        this.data = data;
+        this.cancelada = false;
+    }
+
+    public void cancelar(String motivo) {
+        if (Boolean.TRUE.equals(this.cancelada)) {
+            throw new ValidacaoException("Consulta já está cancelada!");
+        }
+
+        this.cancelada = true;
+        this.motivoCancelamento = motivo;
+    }
 }

@@ -11,10 +11,10 @@ Esse repositório faz parte de um conjunto de projetos de software educacionais/
 ## 📦 Funcionalidades
 
 - 📄 Endpoints REST para recursos principais
-- 🔐 Autenticação e autorização (JWT ou Spring Security)
+- 🔐 Autenticação e autorização (JWT e Spring Security)
 - 📊 Documentação integrada (Swagger/OpenAPI)
-- 💾 Conexão com banco de dados relacional (ex: PostgreSQL, MySQL)
-- 🚀 Possibilidade de deploy facilitado (Docker, Heroku, etc.)
+- 💾 Conexão com banco de dados relacional (PostgreSQL)
+- 🚀 Possibilidade de deploy facilitado
 - 🧪 Testes unitários e de integração
 
 ## 🧠 Pré-requisitos
